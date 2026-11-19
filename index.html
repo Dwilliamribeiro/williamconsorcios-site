@@ -179,6 +179,7 @@ const CONFIG = {
       <h1>Você ganha em <em>moeda forte</em>. Construa patrimônio no Brasil sem pagar juros.</h1>
       <p class="lead">Uma análise de 2 minutos para brasileiros nos EUA, Europa e outros países: quanto de crédito imobiliário sua renda lá fora sustenta aqui, quanto isso pesa no seu mês e o melhor caminho para o seu objetivo.</p>
       <button class="btn" onclick="startFlow()">Fazer minha análise gratuita →</button>
+      <p style="font-size:14px;color:var(--muted);margin:12px 0 0">Mora no Brasil? A análise também funciona para você, com valores em reais.</p>
     </div>
     <aside class="fx">
       <h3>Quanto vale sua moeda no Brasil</h3>
@@ -263,7 +264,7 @@ $('#cCred').textContent = CONFIG.credencial;
 })();
 
 /* ============ câmbio: tenta ao vivo, cai para referência ============ */
-let FX = {...CONFIG.fx}, fxLive = false;
+let FX = {...CONFIG.fx, BRL:1}, fxLive = false;
 function paintFx(){
   $('#fxUSD').textContent = 'R$ ' + FX.USD.toFixed(2).replace('.',',');
   $('#fxEUR').textContent = 'R$ ' + FX.EUR.toFixed(2).replace('.',',');
@@ -277,12 +278,13 @@ paintFx();
     const ctl = new AbortController(); const t = setTimeout(()=>ctl.abort(),4000);
     const r = await fetch('https://open.er-api.com/v6/latest/BRL',{signal:ctl.signal}); clearTimeout(t);
     const j = await r.json();
-    if(j && j.rates){ for(const k of Object.keys(FX)) if(j.rates[k]) FX[k] = 1/j.rates[k]; fxLive = true; paintFx(); }
+    if(j && j.rates){ for(const k of Object.keys(FX)) if(k!=='BRL' && j.rates[k]) FX[k] = 1/j.rates[k]; fxLive = true; paintFx(); }
   }catch(e){ /* sem rede externa: mantém referência */ }
 })();
 
 /* ============ países ============ */
 const COUNTRIES = [
+  {id:'br', label:'🇧🇷 Moro no Brasil', c:'BRL', tz:-3},
   {id:'us-e', label:'EUA · Costa Leste (FL, NY, MA, NJ…)', c:'USD', tz:-5},
   {id:'us-c', label:'EUA · Centro (TX, IL…)', c:'USD', tz:-6},
   {id:'us-w', label:'EUA · Costa Oeste (CA, WA…)', c:'USD', tz:-8},
@@ -299,7 +301,7 @@ const COUNTRIES = [
   {id:'au', label:'Austrália', c:'AUD', tz:10},
   {id:'ot', label:'Outro país', c:'USD', tz:null},
 ];
-const SYM = {USD:'US$',EUR:'€',GBP:'£',CHF:'CHF',CAD:'C$',AUD:'A$'};
+const SYM = {BRL:'R$',USD:'US$',EUR:'€',GBP:'£',CHF:'CHF',CAD:'C$',AUD:'A$'};
 
 /* ============ estado ============ */
 const S = {};
@@ -360,11 +362,18 @@ async function flow(){
   await bot(`Prazer, ${esc(S.nome)}! Em qual país você mora hoje?`);
   S.pais = await options(COUNTRIES);
   S.moeda = S.pais.c;
+  S.br = S.pais.id==='br';
   const sy = SYM[S.moeda];
 
   progress();
   await bot('Qual é o seu principal objetivo com um patrimônio no Brasil?');
-  S.obj = await options([
+  S.obj = await options(S.br ? [
+    {id:'moradia', label:'🏡 Minha casa própria', p:10},
+    {id:'renda', label:'💰 Imóvel para gerar renda (aluguel)', p:10},
+    {id:'familia', label:'👨‍👩‍👧 Imóvel para alguém da família', p:10},
+    {id:'patrimonio', label:'📈 Aposentadoria / patrimônio no longo prazo', p:8},
+    {id:'veiculo', label:'🚗 Veículo ou outro bem', p:5},
+  ] : [
     {id:'volta', label:'🏡 Imóvel para quando eu voltar', p:10},
     {id:'renda', label:'💰 Imóvel para gerar renda (aluguel)', p:10},
     {id:'familia', label:'👨‍👩‍👧 Imóvel para minha família no Brasil', p:10},
@@ -374,17 +383,26 @@ async function flow(){
   ]);
 
   progress();
-  await bot('E sobre voltar ao Brasil, qual é o seu plano?');
-  S.volta = await options([
-    {id:'data', label:'Já tenho data (até 3 anos)', p:10},
-    {id:'medio', label:'Talvez em 5 a 10 anos', p:9},
-    {id:'nao', label:'Não pretendo voltar', p:6},
-    {id:'nsei', label:'Ainda não sei', p:5},
-  ]);
+  if(S.br){
+    S.volta = {id:'br', label:'Mora no Brasil', p:9};
+  } else {
+    await bot('E sobre voltar ao Brasil, qual é o seu plano?');
+    S.volta = await options([
+      {id:'data', label:'Já tenho data (até 3 anos)', p:10},
+      {id:'medio', label:'Talvez em 5 a 10 anos', p:9},
+      {id:'nao', label:'Não pretendo voltar', p:6},
+      {id:'nsei', label:'Ainda não sei', p:5},
+    ]);
+  }
 
   progress();
-  await bot(`Pensando no seu orçamento em ${S.moeda}, quanto você conseguiria reservar <b>por mês</b> com tranquilidade para esse projeto?`);
-  S.mensal = await options([
+  await bot(`Pensando no seu orçamento ${S.br?'mensal':'em '+S.moeda}, quanto você conseguiria reservar <b>por mês</b> com tranquilidade para esse projeto?`);
+  S.mensal = await options(S.br ? [
+    {label:'Até R$ 1.500', v:1200},
+    {label:'R$ 1.500 a 3.000', v:2200},
+    {label:'R$ 3.000 a 6.000', v:4500},
+    {label:'Mais de R$ 6.000', v:8000},
+  ] : [
     {label:`Até ${sy} 300`, v:250},
     {label:`${sy} 300 a 700`, v:500},
     {label:`${sy} 700 a 1.500`, v:1100},
@@ -393,7 +411,12 @@ async function flow(){
 
   progress();
   await bot('Você tem algum valor guardado que poderia usar para <b>antecipar</b> (dar lance) e receber o crédito mais cedo?');
-  S.reserva = await options([
+  S.reserva = await options(S.br ? [
+    {label:'Não tenho reserva agora', v:0},
+    {label:'Até R$ 20 mil', v:12000},
+    {label:'R$ 20 mil a 100 mil', v:60000},
+    {label:'Mais de R$ 100 mil', v:150000},
+  ] : [
     {label:'Não tenho reserva agora', v:0},
     {label:`Até ${sy} 5 mil`, v:3000},
     {label:`${sy} 5 mil a 20 mil`, v:12000},
@@ -416,7 +439,7 @@ async function flow(){
     {id:'nsei', label:'Não tenho certeza', p:8},
     {id:'nao', label:'Não / preciso regularizar', p:2},
   ]);
-  if(S.cpf.id!=='sim') await bot('Sem problema. Brasileiros no exterior regularizam o CPF online pela Receita Federal, sem ir ao consulado. O consultor te orienta.',500);
+  if(S.cpf.id!=='sim') await bot(S.br ? 'Sem problema. A situação do CPF pode ser consultada e regularizada online pela Receita Federal. O consultor te orienta.' : 'Sem problema. Brasileiros no exterior regularizam o CPF online pela Receita Federal, sem ir ao consulado. O consultor te orienta.',500);
 
   progress();
   await bot('Qual o melhor período para conversarmos, no <b>seu</b> horário local?');
@@ -480,13 +503,13 @@ function finish(){
 
   const tierTxt = {A:'Perfil pronto para avançar', B:'Perfil com bom potencial', C:'Perfil para planejamento'}[sc.tier];
   const head = {
-    A:`${S.nome}, sua renda em ${S.moeda} já sustenta um projeto sólido no Brasil.`,
+    A: S.br ? `${S.nome}, sua renda já sustenta um projeto sólido.` : `${S.nome}, sua renda em ${S.moeda} já sustenta um projeto sólido no Brasil.`,
     B:`${S.nome}, dá para começar a construir esse patrimônio agora.`,
     C:`${S.nome}, vale começar com um plano do tamanho certo.`
   }[sc.tier];
 
   const objTxt = {
-    volta:'ter seu imóvel garantido quando voltar', renda:'montar um imóvel de renda',
+    volta:'ter seu imóvel garantido quando voltar', moradia:'conquistar sua casa própria', renda:'montar um imóvel de renda',
     familia:'garantir um imóvel para sua família', exterior:'comprar um imóvel aí fora',
     patrimonio:'formar patrimônio de longo prazo', veiculo:'adquirir um bem planejado'
   }[S.obj.id];
@@ -497,7 +520,7 @@ function finish(){
     : `Sem reserva, você participa dos sorteios mensais e pode ir guardando para um lance mais à frente.`;
 
   const exterior = S.obj.id==='exterior' ? `<div class="warnbox" style="display:block">Imóveis no exterior por consórcio seguem regras específicas e podem exigir garantia de bens no Brasil. O consultor confirma as condições disponíveis para o seu país.</div>` : '';
-  const cpfWarn = S.cpf.id!=='sim' ? `<div class="warnbox" style="display:block">Antes de aderir, confirme a situação do seu CPF. A regularização para quem mora fora é feita online pela Receita Federal.</div>` : '';
+  const cpfWarn = S.cpf.id!=='sim' ? `<div class="warnbox" style="display:block">Antes de aderir, confirme a situação do seu CPF. A regularização ${S.br?'':'para quem mora fora '}é feita online pela Receita Federal.</div>` : '';
   const noWa = !CONFIG.whatsapp ? `<div class="warnbox" style="display:block"><b>Configuração pendente:</b> o número de WhatsApp do consultor ainda não foi definido nesta página.</div>` : '';
 
   const scen = [-0.15,0,0.15].map(d=>{
@@ -518,20 +541,22 @@ function finish(){
     <div class="grid">
       <div class="kpi"><span>Carta de crédito sugerida</span><b>${brl(sim.carta)}</b><small>em reais, corrigida por índice</small></div>
       <div class="kpi"><span>Parcela estimada</span><b>${brl(sim.parcela)}</b><small>${sim.n} meses</small></div>
-      <div class="kpi"><span>Na sua moeda</span><b>${cur(parcelaLocal,S.moeda)}</b><small>por mês ao câmbio atual</small></div>
+      ${S.br
+        ? `<div class="kpi"><span>Total estimado</span><b>${brl(sim.parcela*sim.n)}</b><small>sem juros, antes da correção</small></div>`
+        : `<div class="kpi"><span>Na sua moeda</span><b>${cur(parcelaLocal,S.moeda)}</b><small>por mês ao câmbio atual</small></div>`}
       <div class="kpi"><span>Do valor que você reserva</span><b>${Math.round(share)}%</b><small>sobra margem para lance</small></div>
     </div>
     <p>${lanceTxt}</p>
-    <div class="fxbox">
+    ${S.br ? '' : `<div class="fxbox">
       <h4>O efeito do câmbio na sua parcela</h4>
       <div style="font-size:14px;color:var(--muted)">A parcela é em reais. Se a sua moeda se valoriza, ela fica mais barata para você. Se desvaloriza, fica mais cara.</div>
       <div class="bars">${scen.map(s=>`<div class="bar"><span>${s.lbl}</span><div class="t"><i style="width:${(s.v/maxV*100).toFixed(0)}%"></i></div><b>${cur(s.v,S.moeda)}</b></div>`).join('')}</div>
-    </div>
+    </div>`}
     ${cpfWarn}${exterior}
     <div class="next">
-      <div class="step"><b>1 · Conversa de 20 min</b>Por vídeo ou WhatsApp, no seu fuso${hBR!==null?` (seu período ≈ ${String(hBR).padStart(2,'0')}h em Brasília)`:''}.</div>
+      <div class="step"><b>1 · Conversa de 20 min</b>Por vídeo ou WhatsApp, ${S.br?'no horário que for melhor para você':'no seu fuso'}${(hBR!==null && !S.br)?` (seu período ≈ ${String(hBR).padStart(2,'0')}h em Brasília)`:''}.</div>
       <div class="step"><b>2 · Grupo e estratégia</b>O consultor mostra grupos com histórico de lances compatível com o seu prazo.</div>
-      <div class="step"><b>3 · Adesão 100% online</b>Contrato digital, parcelas pagas a partir do exterior.</div>
+      <div class="step"><b>3 · Adesão 100% online</b>Contrato digital, ${S.br?'sem precisar ir a uma agência':'parcelas pagas a partir do exterior'}.</div>
     </div>
     <div class="cta">
       <a class="btn wa" id="waBtn" href="#" target="_blank" rel="noopener">Falar com ${esc(CONFIG.consultor.split(' ')[0])} no WhatsApp</a>
