@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patrimônio no Brasil — Análise para brasileiros no exterior</title>
+<meta name="description" content="Consórcio de imóveis para brasileiros nos EUA e na Europa: parcelas em reais, sem juros, tudo online. Faça sua análise gratuita em 2 minutos.">
+<link rel="canonical" href="https://williamconsorcios.netlify.app/">
+<meta name="theme-color" content="#0f5c3f">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="William Ribeiro · Consórcios">
+<meta property="og:title" content="Você ganha em moeda forte. Construa patrimônio no Brasil sem pagar juros.">
+<meta property="og:description" content="Análise gratuita de 2 minutos para brasileiros nos EUA, Europa e outros países: quanto de crédito imobiliário sua renda lá fora sustenta no Brasil.">
+<meta property="og:url" content="https://williamconsorcios.netlify.app/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f5c3f'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' text-anchor='middle' fill='%23f3e6c6'%3EWR%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FinancialService","name":"William Ribeiro · Consórcios","description":"Consultoria de consórcio de imóveis no Brasil para brasileiros que moram no exterior.","url":"https://williamconsorcios.netlify.app/","areaServed":["US","PT","IE","GB","ES","IT","DE","FR","NL","BE","CH","CA","AU"],"availableLanguage":"pt-BR"}
+</script>
+<style>
+:root{
+  --paper:#f6f2ea; --card:#fffdf8; --ink:#16231d; --muted:#5d6b63; --line:#e3dccd;
+  --green:#0f5c3f; --green-2:#167a54; --gold:#c8962e; --gold-soft:#f3e6c6;
+  --hot:#c2410c; --warm:#b7791f; --cold:#3b6e8f;
+  --r:18px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--green)}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+header{padding:22px 0 0;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:600}
+.mark{width:40px;height:40px;border-radius:11px;background:var(--green);display:grid;place-items:center;color:var(--gold-soft);font-family:Fraunces,serif;font-size:16px;letter-spacing:.02em}
+.brand small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+.nav{display:flex;gap:18px;align-items:center;font-size:14.5px;font-weight:600}
+.nav a{text-decoration:none;color:var(--ink)}
+.nav a:hover{color:var(--green)}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;padding:42px 0 30px}
+h1{font-family:Fraunces,serif;font-weight:700;font-size:clamp(32px,5vw,52px);line-height:1.04;letter-spacing:-.02em;margin:0 0 16px}
+h1 em{font-style:normal;color:var(--green);background:linear-gradient(transparent 62%,var(--gold-soft) 62%)}
+.lead{font-size:18px;line-height:1.55;color:var(--muted);margin:0 0 22px}
+.btn{appearance:none;border:0;cursor:pointer;font:inherit;font-weight:600;border-radius:999px;padding:14px 22px;background:var(--green);color:#fff;transition:transform .15s,background .15s;text-decoration:none;display:inline-block}
+.btn:hover{background:var(--green-2);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--green);box-shadow:inset 0 0 0 1.5px var(--green)}
+.btn.gold{background:var(--gold);color:#1d1404}
+.fx{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.fx h3{margin:0 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.fxrow{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--line)}
+.fxrow:last-of-type{border-bottom:0}
+.fxrow b{font-family:Fraunces,serif;font-size:24px}
+.fxsrc{font-size:12px;color:var(--muted);margin-top:8px}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 40px}
+.pillar{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.pillar b{display:block;margin-bottom:6px}
+.pillar span{color:var(--muted);font-size:14px;line-height:1.5}
+
+/* chat */
+#analise{scroll-margin-top:20px}
+.chat{background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 20px 50px -30px rgba(15,92,63,.35)}
+.chathead{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line);background:#fbf8f1}
+.chathead .who{display:flex;gap:10px;align-items:center;font-weight:600}
+.dot{width:9px;height:9px;border-radius:50%;background:#22a06b;box-shadow:0 0 0 4px #22a06b22}
+.progress{height:4px;background:var(--line)}
+.progress i{display:block;height:100%;width:0;background:var(--gold);transition:width .4s}
+.msgs{padding:22px 20px 8px;min-height:340px;max-height:62vh;overflow-y:auto;display:flex;flex-direction:column;gap:10px}
+.m{max-width:84%;padding:12px 15px;border-radius:16px;line-height:1.5;font-size:15.5px;animation:pop .25s ease}
+.m.bot{background:#eef4ef;border-top-left-radius:5px;align-self:flex-start}
+.m.me{background:var(--green);color:#fff;border-top-right-radius:5px;align-self:flex-end}
+.typing{display:inline-flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);opacity:.5;animation:blink 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes blink{50%{opacity:1}}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.input{padding:14px 20px 20px;border-top:1px solid var(--line)}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:10px 15px;font:inherit;font-size:14.5px;cursor:pointer;transition:all .15s;color:var(--ink)}
+.opt:hover{border-color:var(--green);color:var(--green)}
+.txt{display:flex;gap:8px}
+.txt input{flex:1;border:1.5px solid var(--line);border-radius:999px;padding:12px 16px;font:inherit;font-size:15px;background:#fff;color:var(--ink)}
+.txt input:focus{outline:none;border-color:var(--green)}
+.err{color:var(--hot);font-size:13px;margin-top:6px;min-height:1em}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--muted);line-height:1.45;margin-bottom:10px}
+.consent input{margin-top:3px;accent-color:var(--green);width:18px;height:18px}
+
+/* result */
+#resultado{display:none;margin-top:28px}
+.res{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px}
+.reshead{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap}
+.badge{display:inline-flex;gap:8px;align-items:center;border-radius:999px;padding:7px 13px;font-weight:700;font-size:13px}
+.badge.A{background:#fde7dc;color:var(--hot)}.badge.B{background:#fbefd5;color:var(--warm)}.badge.C{background:#e1edf4;color:var(--cold)}
+.res h2{font-family:Fraunces,serif;font-size:30px;margin:10px 0 6px;letter-spacing:-.01em}
+.res p{color:var(--muted);line-height:1.55}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
+.kpi{background:var(--paper);border-radius:14px;padding:14px}
+.kpi span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.kpi b{display:block;font-family:Fraunces,serif;font-size:24px;margin-top:4px}
+.kpi small{color:var(--muted);font-size:12.5px}
+.fxbox{border:1px dashed var(--gold);background:#fffaf0;border-radius:14px;padding:16px;margin:14px 0}
+.fxbox h4{margin:0 0 8px}
+.bars{display:grid;gap:8px;margin-top:10px}
+.bar{display:grid;grid-template-columns:150px 1fr 90px;gap:10px;align-items:center;font-size:14px}
+.bar .t{height:10px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar .t i{display:block;height:100%;background:var(--green)}
+.next{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+.step{border:1px solid var(--line);border-radius:14px;padding:14px;font-size:14px;line-height:1.45}
+.step b{display:block;margin-bottom:4px}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.wa{background:#1f9d57}
+.wa:hover{background:#178648}
+.note{font-size:12.5px;color:var(--muted);line-height:1.5;margin-top:14px}
+.warnbox{background:#fff3e8;border:1px solid #f3c9a6;color:#8a3b0c;border-radius:12px;padding:12px 14px;font-size:14px;margin-top:12px;display:none}
+
+/* blog teaser */
+.blogteaser{margin:44px 0 0;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.blogteaser h2{font-family:Fraunces,serif;font-size:24px;margin:0 0 4px}
+.blogteaser p{margin:0;color:var(--muted);line-height:1.5}
+
+/* faq */
+.faq{margin:44px 0}
+.faq h2{font-family:Fraunces,serif;font-size:30px;margin:0 0 6px}
+.ask{display:flex;gap:8px;margin:14px 0 8px}
+.ask input{flex:1;border:1.5px solid var(--line);border-radius:999px;padding:13px 16px;font:inherit;background:#fff}
+.answer{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;line-height:1.55;display:none;white-space:pre-wrap}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-top:10px}
+summary{cursor:pointer;font-weight:600}
+details p{color:var(--muted);line-height:1.55;margin:10px 0 0}
+footer{border-top:1px solid var(--line);padding:22px 0 90px;font-size:12.5px;color:var(--muted);line-height:1.6}
+
+/* WhatsApp flutuante */
+.wafloat{position:fixed;right:18px;bottom:18px;z-index:50;display:flex;align-items:center;gap:10px;background:#1f9d57;color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:13px 18px 13px 14px;border-radius:999px;box-shadow:0 12px 30px -10px rgba(0,0,0,.45);transition:transform .15s,background .15s}
+.wafloat:hover{background:#178648;transform:translateY(-2px)}
+.wafloat svg{width:24px;height:24px;flex:none}
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;padding-top:26px}
+  .pillars,.next{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr 1fr}
+  .bar{grid-template-columns:110px 1fr 80px}
+  .m{max-width:92%}
+  .nav .hide-sm{display:none}
+  .wafloat span{display:none}
+  .wafloat{padding:14px}
+}
+</style>
+</head>
+<body>
+<script>
+/* =================== CONFIGURAÇÃO DO CONSULTOR =================== */
+const CONFIG = {
+  consultor: "William Ribeiro",                // nome exibido
+  credencial: "Consultor credenciado Ademicon", // linha abaixo do nome
+  whatsapp: "5561981814638",                              // DDI+DDD+número, só dígitos. Ex.: 5541999998888
+  email: "",                                    // opcional, aparece como alternativa
+  // Câmbio de referência (R$ por 1 unidade) — usado se a cotação ao vivo não carregar
+  fx: { USD: 5.56, EUR: 6.18, GBP: 7.25, CHF: 6.90, CAD: 3.98, AUD: 3.62 },
+  fxData: "11/11/2026",
+  // Parâmetros ilustrativos da simulação (ajuste à tabela vigente do grupo)
+  prazoMeses: 220,
+  taxaAdm: 0.24,       // 24% sobre o crédito, diluído no prazo
+  fundoReserva: 0,     // sem fundo de reserva
+  usoDaCapacidade: 0.85 // simula a parcela com 85% do que o cliente disse poder reservar
+};
+</script>
+
+<header class="wrap">
+  <div class="brand"><div class="mark">WR</div><div><span id="cName"></span><small id="cCred"></small></div></div>
+  <nav class="nav">
+    <a href="/blog/">Blog</a>
+    <a href="#analise" class="hide-sm" onclick="startFlow();return false;">Análise gratuita</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <h1>Você ganha em <em>moeda forte</em>. Construa patrimônio no Brasil sem pagar juros.</h1>
+      <p class="lead">Uma análise de 2 minutos para brasileiros nos EUA, Europa e outros países: quanto de crédito imobiliário sua renda lá fora sustenta aqui, quanto isso pesa no seu mês e o melhor caminho para o seu objetivo.</p>
+      <button class="btn" onclick="startFlow()">Fazer minha análise gratuita →</button>
+    </div>
+    <aside class="fx">
+      <h3>Quanto vale sua moeda no Brasil</h3>
+      <div class="fxrow"><span>US$ 1 · dólar</span><b id="fxUSD">—</b></div>
+      <div class="fxrow"><span>€ 1 · euro</span><b id="fxEUR">—</b></div>
+      <div class="fxrow"><span>£ 1 · libra</span><b id="fxGBP">—</b></div>
+      <div class="fxsrc" id="fxSrc"></div>
+    </aside>
+  </section>
+
+  <section class="pillars">
+    <div class="pillar"><b>Sem juros de financiamento</b><span>No consórcio você paga uma taxa de administração diluída no prazo, e não juros bancários sobre o saldo.</span></div>
+    <div class="pillar"><b>Parcelas em reais, renda em moeda forte</b><span>Com a renda no exterior, a parcela representa uma fatia menor do seu orçamento. A simulação mostra o efeito do câmbio.</span></div>
+    <div class="pillar"><b>Tudo feito à distância</b><span>Com CPF regular, a adesão e o acompanhamento são online, de qualquer fuso horário.</span></div>
+  </section>
+
+  <section id="analise">
+    <div class="chat">
+      <div class="chathead">
+        <div class="who"><span class="dot"></span>Assistente de análise</div>
+        <small style="color:var(--muted)" id="stepLbl">2 minutos</small>
+      </div>
+      <div class="progress"><i id="prog"></i></div>
+      <div class="msgs" id="msgs"></div>
+      <div class="input" id="inp"></div>
+    </div>
+  </section>
+
+  <section id="resultado"></section>
+
+  <!-- Formulário oculto para o Netlify Forms (cadastro de leads) -->
+  <form name="leads" method="POST" data-netlify="true" netlify-honeypot="campo_extra" hidden>
+    <input type="hidden" name="form-name" value="leads"><input name="campo_extra">
+    <input name="nome"><input name="pais"><input name="objetivo"><input name="volta"><input name="mensal"><input name="reserva"><input name="quando"><input name="cpf"><input name="periodo"><input name="whatsapp"><input name="email"><input name="perfil"><input name="pontos"><input name="carta"><input name="parcela_brl"><input name="parcela_moeda"><input name="origem"><input name="autorizou_contato">
+  </form>
+
+  <section class="blogteaser">
+    <div>
+      <h2>Guias para quem mora fora</h2>
+      <p>Câmbio, CPF, imóvel no Brasil, consórcio x financiamento: respostas diretas para brasileiros nos EUA e na Europa.</p>
+    </div>
+    <a class="btn ghost" href="/blog/">Ler o blog →</a>
+  </section>
+
+  <section class="faq">
+    <h2>Perguntas frequentes</h2>
+    <p style="color:var(--muted);margin:0">Escreva sua dúvida ou abra uma das perguntas abaixo.</p>
+    <div class="ask"><input id="q" placeholder="Ex.: preciso estar no Brasil para assinar?" onkeydown="if(event.key==='Enter')askFaq()"><button class="btn" onclick="askFaq()">Perguntar</button></div>
+    <div class="answer" id="ans"></div>
+    <div id="faqList"></div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p><b>Aviso importante.</b> Esta página faz simulações ilustrativas, sem valor de proposta. Consórcio é uma modalidade de compra planejada regulada pelo Banco Central (Lei 11.795/2008). Ele não é aplicação financeira e não tem rentabilidade garantida. A contemplação acontece por sorteio ou lance, e não há data garantida. Não há juros nem fundo de reserva: o custo é a taxa de administração, diluída no prazo. O crédito e as parcelas são corrigidos por índice previsto em contrato (como o INCC). Taxas, prazos e regras variam por grupo e constam no contrato e no regulamento. O câmbio oscila nos dois sentidos.</p>
+  <p><b>Privacidade (LGPD/GDPR).</b> Suas respostas só são enviadas ao consultor se você autorizar no fim da análise, e servem apenas para ele entrar em contato com a sua proposta. Você pode pedir a exclusão dos seus dados a qualquer momento pelo WhatsApp do consultor.</p>
+  <p><a href="/blog/">Blog</a> · <a href="#analise" onclick="startFlow();return false;">Análise gratuita</a></p>
+</footer>
+
+<a class="wafloat" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.1-.3Z"/></svg>
+  <span>Fale comigo</span>
+</a>
+
+<script>
+/* ============ util ============ */
+const $ = s => document.querySelector(s);
+const brl = v => v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
+const cur = (v,c) => v.toLocaleString('pt-BR',{style:'currency',currency:c,maximumFractionDigits:0});
+const sleep = ms => new Promise(r=>setTimeout(r,ms));
+const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+$('#cName').textContent = CONFIG.consultor;
+$('#cCred').textContent = CONFIG.credencial;
+
+/* ============ WhatsApp flutuante ============ */
+(()=>{
+  const f = $('#waFloat');
+  if(!CONFIG.whatsapp){ f.style.display='none'; return; }
+  const msg = `Olá, ${CONFIG.consultor.split(' ')[0]}! Vim pelo seu site e quero saber mais sobre consórcio para quem mora no exterior.`;
+  f.href = `https://wa.me/${CONFIG.whatsapp.replace(/\D/g,'')}?text=${encodeURIComponent(msg)}`;
+})();
+
+/* ============ câmbio: tenta ao vivo, cai para referência ============ */
+let FX = {...CONFIG.fx}, fxLive = false;
+function paintFx(){
+  $('#fxUSD').textContent = 'R$ ' + FX.USD.toFixed(2).replace('.',',');
+  $('#fxEUR').textContent = 'R$ ' + FX.EUR.toFixed(2).replace('.',',');
+  $('#fxGBP').textContent = 'R$ ' + FX.GBP.toFixed(2).replace('.',',');
+  $('#fxSrc').textContent = fxLive ? 'Cotação ao vivo (open.er-api.com) · ' + new Date().toLocaleDateString('pt-BR')
+                                   : 'Cotação comercial de referência em ' + CONFIG.fxData;
+}
+paintFx();
+(async()=>{
+  try{
+    const ctl = new AbortController(); const t = setTimeout(()=>ctl.abort(),4000);
+    const r = await fetch('https://open.er-api.com/v6/latest/BRL',{signal:ctl.signal}); clearTimeout(t);
+    const j = await r.json();
+    if(j && j.rates){ for(const k of Object.keys(FX)) if(j.rates[k]) FX[k] = 1/j.rates[k]; fxLive = true; paintFx(); }
+  }catch(e){ /* sem rede externa: mantém referência */ }
+})();
+
+/* ============ países ============ */
+const COUNTRIES = [
+  {id:'us-e', label:'EUA · Costa Leste (FL, NY, MA, NJ…)', c:'USD', tz:-5},
+  {id:'us-c', label:'EUA · Centro (TX, IL…)', c:'USD', tz:-6},
+  {id:'us-w', label:'EUA · Costa Oeste (CA, WA…)', c:'USD', tz:-8},
+  {id:'pt', label:'Portugal', c:'EUR', tz:0},
+  {id:'ie', label:'Irlanda', c:'EUR', tz:0},
+  {id:'uk', label:'Reino Unido', c:'GBP', tz:0},
+  {id:'es', label:'Espanha', c:'EUR', tz:1},
+  {id:'it', label:'Itália', c:'EUR', tz:1},
+  {id:'de', label:'Alemanha', c:'EUR', tz:1},
+  {id:'fr', label:'França', c:'EUR', tz:1},
+  {id:'nl', label:'Holanda / Bélgica', c:'EUR', tz:1},
+  {id:'ch', label:'Suíça', c:'CHF', tz:1},
+  {id:'ca', label:'Canadá', c:'CAD', tz:-5},
+  {id:'au', label:'Austrália', c:'AUD', tz:10},
+  {id:'ot', label:'Outro país', c:'USD', tz:null},
+];
+const SYM = {USD:'US$',EUR:'€',GBP:'£',CHF:'CHF',CAD:'C$',AUD:'A$'};
+
+/* ============ estado ============ */
+const S = {};
+const stepsTotal = 10;
+let stepN = 0;
+
+function progress(){ stepN++; $('#prog').style.width = Math.min(100, stepN/stepsTotal*100)+'%'; $('#stepLbl').textContent = `Etapa ${Math.min(stepN,stepsTotal)} de ${stepsTotal}`; }
+
+async function bot(html, wait=650){
+  const box = $('#msgs');
+  const t = document.createElement('div'); t.className='m bot'; t.innerHTML='<span class="typing"><i></i><i></i><i></i></span>';
+  box.appendChild(t); box.scrollTop = box.scrollHeight;
+  await sleep(wait);
+  t.innerHTML = html; box.scrollTop = box.scrollHeight;
+}
+function me(text){
+  const d = document.createElement('div'); d.className='m me'; d.textContent=text;
+  $('#msgs').appendChild(d); $('#msgs').scrollTop = 1e9;
+}
+function options(list){
+  return new Promise(res=>{
+    const inp = $('#inp'); inp.innerHTML='<div class="opts"></div>';
+    list.forEach(o=>{
+      const b=document.createElement('button'); b.className='opt'; b.textContent=o.label;
+      b.onclick=()=>{ inp.innerHTML=''; me(o.label); res(o); };
+      inp.firstChild.appendChild(b);
+    });
+  });
+}
+function textIn(ph, validate, type='text'){
+  return new Promise(res=>{
+    const inp=$('#inp');
+    inp.innerHTML=`<div class="txt"><input type="${type}" placeholder="${esc(ph)}" autocomplete="on"><button class="btn">Enviar</button></div><div class="err"></div>`;
+    const i=inp.querySelector('input'), b=inp.querySelector('button'), e=inp.querySelector('.err');
+    i.focus({preventScroll:true});
+    const go=()=>{ const v=i.value.trim(); const msg=validate?validate(v):null; if(msg){e.textContent=msg;return;} inp.innerHTML=''; me(v||'—'); res(v); };
+    b.onclick=go; i.onkeydown=ev=>{ if(ev.key==='Enter') go(); };
+  });
+}
+
+let started=false;
+function startFlow(){
+  $('#analise').scrollIntoView({behavior:'smooth'});
+  if(!started){ started=true; flow(); }
+}
+/* abre a análise direto quando o link vem do blog (…/#analise) */
+if(location.hash==='#analise') window.addEventListener('load',()=>setTimeout(startFlow,300));
+
+/* ============ conversa ============ */
+async function flow(){
+  await bot('Olá! 👋 Vou te fazer algumas perguntas rápidas para calcular quanto de crédito sua renda no exterior sustenta no Brasil. Nada fica gravado aqui.',500);
+  progress();
+  await bot('Para começar, como posso te chamar?');
+  S.nome = await textIn('Seu primeiro nome', v=> v.length<2?'Digite seu nome':null);
+  S.nome = S.nome.split(' ')[0].replace(/^./,c=>c.toUpperCase());
+
+  progress();
+  await bot(`Prazer, ${esc(S.nome)}! Em qual país você mora hoje?`);
+  S.pais = await options(COUNTRIES);
+  S.moeda = S.pais.c;
+  const sy = SYM[S.moeda];
+
+  progress();
+  await bot('Qual é o seu principal objetivo com um patrimônio no Brasil?');
+  S.obj = await options([
+    {id:'volta', label:'🏡 Imóvel para quando eu voltar', p:10},
+    {id:'renda', label:'💰 Imóvel para gerar renda (aluguel)', p:10},
+    {id:'familia', label:'👨‍👩‍👧 Imóvel para minha família no Brasil', p:10},
+    {id:'exterior', label:'🌍 Imóvel aqui no exterior', p:8},
+    {id:'patrimonio', label:'📈 Aposentadoria / patrimônio no longo prazo', p:8},
+    {id:'veiculo', label:'🚗 Veículo ou outro bem', p:5},
+  ]);
+
+  progress();
+  await bot('E sobre voltar ao Brasil, qual é o seu plano?');
+  S.volta = await options([
+    {id:'data', label:'Já tenho data (até 3 anos)', p:10},
+    {id:'medio', label:'Talvez em 5 a 10 anos', p:9},
+    {id:'nao', label:'Não pretendo voltar', p:6},
+    {id:'nsei', label:'Ainda não sei', p:5},
+  ]);
+
+  progress();
+  await bot(`Pensando no seu orçamento em ${S.moeda}, quanto você conseguiria reservar <b>por mês</b> com tranquilidade para esse projeto?`);
+  S.mensal = await options([
+    {label:`Até ${sy} 300`, v:250},
+    {label:`${sy} 300 a 700`, v:500},
+    {label:`${sy} 700 a 1.500`, v:1100},
+    {label:`Mais de ${sy} 1.500`, v:2000},
+  ]);
+
+  progress();
+  await bot('Você tem algum valor guardado que poderia usar para <b>antecipar</b> (dar lance) e receber o crédito mais cedo?');
+  S.reserva = await options([
+    {label:'Não tenho reserva agora', v:0},
+    {label:`Até ${sy} 5 mil`, v:3000},
+    {label:`${sy} 5 mil a 20 mil`, v:12000},
+    {label:`Mais de ${sy} 20 mil`, v:35000},
+  ]);
+
+  progress();
+  await bot('Quando você gostaria de ter o crédito em mãos?');
+  S.quando = await options([
+    {id:'1', label:'Nos próximos 12 meses', p:14},
+    {id:'3', label:'Em 1 a 3 anos', p:15},
+    {id:'5', label:'Em 3 a 5 anos', p:11},
+    {id:'5+', label:'Sem pressa, mais de 5 anos', p:7},
+  ]);
+
+  progress();
+  await bot('Seu CPF está ativo e regular? Ele é necessário para participar.');
+  S.cpf = await options([
+    {id:'sim', label:'Sim, está regular', p:15},
+    {id:'nsei', label:'Não tenho certeza', p:8},
+    {id:'nao', label:'Não / preciso regularizar', p:2},
+  ]);
+  if(S.cpf.id!=='sim') await bot('Sem problema. Brasileiros no exterior regularizam o CPF online pela Receita Federal, sem ir ao consulado. O consultor te orienta.',500);
+
+  progress();
+  await bot('Qual o melhor período para conversarmos, no <b>seu</b> horário local?');
+  S.periodo = await options([
+    {id:'manha', label:'Manhã', h:10}, {id:'tarde', label:'Tarde', h:15}, {id:'noite', label:'Noite', h:19}, {id:'fds', label:'Fim de semana', h:11},
+  ]);
+
+  progress();
+  await bot('Perfeito! Seu WhatsApp, com código do país (ex.: +1 407… ou +351 9…):');
+  S.whats = await textIn('+1 000 000 0000', v=>{ const d=v.replace(/\D/g,''); return d.length<8?'Digite o número com código do país':null; }, 'tel');
+
+  await bot('E um e-mail para receber o resumo? (opcional, pode deixar em branco)');
+  S.email = await textIn('voce@email.com', v=> v && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v) ? 'E-mail inválido (ou deixe em branco)' : null, 'email');
+
+  await bot(`Última coisa, ${esc(S.nome)}: posso enviar sua análise para o consultor ${esc(CONFIG.consultor)} entrar em contato com você?`);
+  S.autoriza = await options([
+    {id:'sim', label:'✅ Sim, pode enviar'},
+    {id:'nao', label:'Só quero ver o resultado'},
+  ]);
+
+  await bot('Estou montando sua análise… 🔎', 900);
+  finish();
+}
+
+/* ============ motor de pontuação e simulação ============ */
+function scoreLead(){
+  const rate = FX[S.moeda];
+  const mensalBRL = S.mensal.v * rate;
+  const reservaBRL = S.reserva.v * rate;
+  let p = 0;
+  p += mensalBRL>=6000?30 : mensalBRL>=3000?25 : mensalBRL>=1500?16 : 6;
+  p += reservaBRL>=100000?20 : reservaBRL>=30000?15 : reservaBRL>0?8 : 0;
+  p += S.quando.p + S.cpf.p + S.obj.p + S.volta.p;
+  // urgência sem reserva é menos qualificada (depende de sorteio)
+  if(S.quando.id==='1' && reservaBRL===0) p -= 6;
+  p = Math.max(0, Math.min(100, Math.round(p)));
+  const tier = p>=70?'A':p>=45?'B':'C';
+  return {p, tier, mensalBRL, reservaBRL};
+}
+function simulate(mensalBRL, reservaBRL){
+  const {prazoMeses:n, taxaAdm:a, fundoReserva:f, usoDaCapacidade:u} = CONFIG;
+  const parcelaAlvo = mensalBRL*u;
+  let carta = Math.floor((parcelaAlvo*n/(1+a+f))/10000)*10000;
+  carta = Math.max(carta, 50000);
+  const parcela = carta*(1+a+f)/n;
+  const lancePct = reservaBRL>0 ? reservaBRL/carta : 0;
+  return {carta, parcela, lancePct, n};
+}
+
+function finish(){
+  const sc = scoreLead();
+  const sim = simulate(sc.mensalBRL, sc.reservaBRL);
+  const rate = FX[S.moeda];
+  const parcelaLocal = sim.parcela/rate;
+  S.score = sc; S.sim = sim;
+  if(S.autoriza && S.autoriza.id==='sim') saveLead();
+
+  // horário no Brasil
+  let hBR = null;
+  if(S.pais.tz!==null){ hBR = ((S.periodo.h + (-3 - S.pais.tz)) % 24 + 24) % 24; }
+
+  const tierTxt = {A:'Perfil pronto para avançar', B:'Perfil com bom potencial', C:'Perfil para planejamento'}[sc.tier];
+  const head = {
+    A:`${S.nome}, sua renda em ${S.moeda} já sustenta um projeto sólido no Brasil.`,
+    B:`${S.nome}, dá para começar a construir esse patrimônio agora.`,
+    C:`${S.nome}, vale começar com um plano do tamanho certo.`
+  }[sc.tier];
+
+  const objTxt = {
+    volta:'ter seu imóvel garantido quando voltar', renda:'montar um imóvel de renda',
+    familia:'garantir um imóvel para sua família', exterior:'comprar um imóvel aí fora',
+    patrimonio:'formar patrimônio de longo prazo', veiculo:'adquirir um bem planejado'
+  }[S.obj.id];
+
+  const share = (parcelaLocal/S.mensal.v*100);
+  const lanceTxt = sim.lancePct>0
+    ? `Sua reserva equivale a cerca de <b>${Math.round(sim.lancePct*100)}%</b> desta carta. Um lance desse tamanho pode antecipar a contemplação, dependendo do histórico do grupo (não há garantia).`
+    : `Sem reserva, você participa dos sorteios mensais e pode ir guardando para um lance mais à frente.`;
+
+  const exterior = S.obj.id==='exterior' ? `<div class="warnbox" style="display:block">Imóveis no exterior por consórcio seguem regras específicas e podem exigir garantia de bens no Brasil. O consultor confirma as condições disponíveis para o seu país.</div>` : '';
+  const cpfWarn = S.cpf.id!=='sim' ? `<div class="warnbox" style="display:block">Antes de aderir, confirme a situação do seu CPF. A regularização para quem mora fora é feita online pela Receita Federal.</div>` : '';
+  const noWa = !CONFIG.whatsapp ? `<div class="warnbox" style="display:block"><b>Configuração pendente:</b> o número de WhatsApp do consultor ainda não foi definido nesta página.</div>` : '';
+
+  const scen = [-0.15,0,0.15].map(d=>{
+    const r = rate*(1+d); const v = sim.parcela/r;
+    return {lbl: d===0?'Câmbio de hoje': d<0?`${SYM[S.moeda]} cai 15%`:`${SYM[S.moeda]} sobe 15%`, v};
+  });
+  const maxV = Math.max(...scen.map(s=>s.v));
+
+  $('#resultado').innerHTML = `
+  <div class="res">
+    <div class="reshead">
+      <div>
+        <span class="badge ${sc.tier}">● ${tierTxt}</span>
+        <h2>${esc(head)}</h2>
+        <p>Para ${objTxt}, este é um ponto de partida realista com base no que você respondeu.</p>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="kpi"><span>Carta de crédito sugerida</span><b>${brl(sim.carta)}</b><small>em reais, corrigida por índice</small></div>
+      <div class="kpi"><span>Parcela estimada</span><b>${brl(sim.parcela)}</b><small>${sim.n} meses</small></div>
+      <div class="kpi"><span>Na sua moeda</span><b>${cur(parcelaLocal,S.moeda)}</b><small>por mês ao câmbio atual</small></div>
+      <div class="kpi"><span>Do valor que você reserva</span><b>${Math.round(share)}%</b><small>sobra margem para lance</small></div>
+    </div>
+    <p>${lanceTxt}</p>
+    <div class="fxbox">
+      <h4>O efeito do câmbio na sua parcela</h4>
+      <div style="font-size:14px;color:var(--muted)">A parcela é em reais. Se a sua moeda se valoriza, ela fica mais barata para você. Se desvaloriza, fica mais cara.</div>
+      <div class="bars">${scen.map(s=>`<div class="bar"><span>${s.lbl}</span><div class="t"><i style="width:${(s.v/maxV*100).toFixed(0)}%"></i></div><b>${cur(s.v,S.moeda)}</b></div>`).join('')}</div>
+    </div>
+    ${cpfWarn}${exterior}
+    <div class="next">
+      <div class="step"><b>1 · Conversa de 20 min</b>Por vídeo ou WhatsApp, no seu fuso${hBR!==null?` (seu período ≈ ${String(hBR).padStart(2,'0')}h em Brasília)`:''}.</div>
+      <div class="step"><b>2 · Grupo e estratégia</b>O consultor mostra grupos com histórico de lances compatível com o seu prazo.</div>
+      <div class="step"><b>3 · Adesão 100% online</b>Contrato digital, parcelas pagas a partir do exterior.</div>
+    </div>
+    <div class="cta">
+      <a class="btn wa" id="waBtn" href="#" target="_blank" rel="noopener">Falar com ${esc(CONFIG.consultor.split(' ')[0])} no WhatsApp</a>
+      <button class="btn ghost" onclick="copyResumo(this)">Copiar meu resumo</button>
+    </div>
+    <label class="consent" style="margin-top:14px"><input type="checkbox" id="ok" checked> Autorizo o envio destas respostas ao consultor pelo WhatsApp para receber a proposta. Posso pedir a exclusão a qualquer momento.</label>
+    ${noWa}
+    <p class="note">Simulação ilustrativa com prazo de ${CONFIG.prazoMeses} meses, taxa de administração de ${Math.round(CONFIG.taxaAdm*100)}%, sem juros e sem fundo de reserva. Não inclui correção anual e não tem valor de proposta. Os valores reais dependem do grupo e do contrato. Câmbio: ${fxLive?'ao vivo':'referência de '+CONFIG.fxData}.</p>
+  </div>`;
+  $('#resultado').style.display='block';
+  $('#inp').innerHTML = '<div style="color:var(--muted);font-size:14px">✅ Análise pronta. Veja o resultado abaixo.</div>';
+  $('#prog').style.width='100%'; $('#stepLbl').textContent='Concluído';
+  bot(`Pronto, ${esc(S.nome)}! Sua análise está logo abaixo. 👇`,300);
+
+  const wa = $('#waBtn');
+  wa.href = waLink();
+  wa.addEventListener('click', e=>{
+    if(!$('#ok').checked){ e.preventDefault(); alertBox('Marque a autorização para enviar suas respostas.'); return; }
+    if(!CONFIG.whatsapp){ e.preventDefault(); alertBox('O número do consultor ainda não foi configurado.'); }
+  });
+  setTimeout(()=>$('#resultado').scrollIntoView({behavior:'smooth'}),700);
+}
+function alertBox(t){ const n=document.createElement('div'); n.className='warnbox'; n.style.display='block'; n.textContent=t; $('#resultado .cta').after(n); setTimeout(()=>n.remove(),4000); }
+
+
+/* ============ cadastro de leads (Netlify Forms) ============ */
+const ORIGEM = (()=>{ try{ const u=new URLSearchParams(location.search); return [u.get('utm_source'),u.get('utm_campaign')].filter(Boolean).join(' / ') || (document.referrer ? new URL(document.referrer).hostname : 'direto'); }catch(e){ return 'direto'; } })();
+let leadSaved = false;
+async function saveLead(){
+  if(leadSaved) return; leadSaved = true;
+  const sc=S.score, sim=S.sim;
+  const data = {
+    'form-name':'leads',
+    nome:S.nome, pais:S.pais.label, objetivo:S.obj.label.replace(/^\S+\s/,''), volta:S.volta.label,
+    mensal:S.mensal.label, reserva:S.reserva.label, quando:S.quando.label, cpf:S.cpf.label,
+    periodo:S.periodo.label, whatsapp:S.whats, email:S.email||'', perfil:sc.tier, pontos:String(sc.p),
+    carta:brl(sim.carta), parcela_brl:brl(sim.parcela), parcela_moeda:cur(sim.parcela/FX[S.moeda],S.moeda),
+    origem:ORIGEM, autorizou_contato:'sim'
+  };
+  try{
+    await fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:new URLSearchParams(data).toString()});
+  }catch(e){ /* fora do Netlify não há onde gravar; o WhatsApp continua funcionando */ }
+}
+
+function resumo(){
+  const sc=S.score, sim=S.sim, sy=SYM[S.moeda];
+  return [
+    `Olá, ${CONFIG.consultor.split(' ')[0]}! Fiz a análise no seu site. Meu resumo:`,
+    ``,
+    `• Nome: ${S.nome}`,
+    `• País: ${S.pais.label}`,
+    `• Objetivo: ${S.obj.label.replace(/^\S+\s/,'')}`,
+    `• Plano de volta: ${S.volta.label}`,
+    `• Reserva mensal: ${S.mensal.label}`,
+    `• Valor para lance: ${S.reserva.label}`,
+    `• Quando quero o crédito: ${S.quando.label}`,
+    `• CPF: ${S.cpf.label}`,
+    `• Melhor período: ${S.periodo.label} (meu horário)`,
+    `• WhatsApp: ${S.whats}`,
+    ...(S.email?[`• E-mail: ${S.email}`]:[]),
+    ``,
+    `Simulação: carta de ${brl(sim.carta)}, parcela de ~${brl(sim.parcela)} (${cur(sim.parcela/FX[S.moeda],S.moeda)}).`,
+    `Código da análise: ${sc.tier}-${sc.p}`
+  ].join('\n');
+}
+function waLink(){ return `https://wa.me/${CONFIG.whatsapp.replace(/\D/g,'')}?text=${encodeURIComponent(resumo())}`; }
+async function copyResumo(btn){
+  try{ await navigator.clipboard.writeText(resumo()); btn.textContent='Copiado ✓'; }
+  catch(e){ btn.textContent='Não foi possível copiar'; }
+  setTimeout(()=>btn.textContent='Copiar meu resumo',2200);
+}
+
+/* ============ FAQ com busca + IA opcional ============ */
+const FAQ = [
+  {q:'Preciso estar no Brasil para contratar?', k:['brasil','assinar','presencial','viajar','estar','contratar','online','digital'],
+   a:'Não. A adesão é feita de forma digital, com CPF regular e documentos, e as parcelas podem ser pagas a partir do exterior. Você só precisa organizar a parte presencial, se houver, na hora de usar o crédito (escritura do imóvel), e isso também pode ser feito por procuração.'},
+  {q:'Consórcio é investimento?', k:['investimento','rende','rendimento','retorno','lucro','investir'],
+   a:'Consórcio não é aplicação financeira e não tem rentabilidade garantida. É uma forma planejada de comprar um bem pagando taxa de administração em vez de juros. Ele vira patrimônio quando você usa a carta para comprar um imóvel, que pode valorizar e gerar aluguel. Muita gente usa assim, como estratégia patrimonial.'},
+  {q:'Quando recebo o crédito?', k:['quando','contempla','contemplação','sorteio','lance','receber','antecipar'],
+   a:'Todo mês há contemplações por sorteio e por lance. Não existe data garantida. Com um lance (valor antecipado) as chances aumentam, e o consultor mostra o histórico de lances de cada grupo para ajustar ao seu prazo.'},
+  {q:'E se o câmbio mudar?', k:['câmbio','cambio','dólar','dolar','euro','libra','moeda','variação'],
+   a:'As parcelas são em reais. Se a sua moeda se valoriza frente ao real, a parcela fica mais barata para você. Se se desvaloriza, fica mais cara. Por isso a simulação usa só uma parte do valor que você disse poder reservar, deixando uma folga.'},
+  {q:'Meu CPF está irregular, posso participar?', k:['cpf','irregular','receita','suspenso','regularizar','documento'],
+   a:'É preciso estar com o CPF regular. Brasileiros no exterior fazem a regularização online pelo site da Receita Federal, sem ir ao consulado. O consultor te orienta no passo a passo.'},
+  {q:'Posso comprar imóvel no exterior com consórcio?', k:['exterior','eua','miami','portugal','europa','fora'],
+   a:'Existem modalidades para imóveis fora do Brasil, com regras específicas, que podem exigir garantia de bens no Brasil. As condições dependem do país. Confirme com o consultor o que está disponível para o seu caso.'},
+  {q:'Quais são os custos?', k:['custo','taxa','administração','juros','fundo','reserva','seguro','correção','incc','caro'],
+   a:'Não há juros nem fundo de reserva. O custo é a taxa de administração, diluída nas parcelas ao longo do prazo. Crédito e parcelas são corrigidos por um índice previsto no contrato, como o INCC no caso de imóveis. Tudo vem detalhado na proposta.'},
+  {q:'Posso usar para quitar financiamento ou construir?', k:['quitar','financiamento','construir','reforma','terreno','construção'],
+   a:'Em geral sim. A carta de imóvel pode ser usada para comprar imóvel pronto, na planta, terreno, construção, reforma e até quitar financiamento, conforme o regulamento do grupo.'},
+];
+function renderFaq(){
+  $('#faqList').innerHTML = FAQ.map(f=>`<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('');
+}
+renderFaq();
+
+let samplePromise = null;
+function getSample(){
+  if(!samplePromise){
+    samplePromise = (window.claude && claude.use) ? claude.use('sample').catch(()=>null) : Promise.resolve(null);
+  }
+  return samplePromise;
+}
+function localAnswer(q){
+  const t = q.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+  let best=null, bs=0;
+  for(const f of FAQ){ let s=0; for(const k of f.k){ if(t.includes(k.normalize('NFD').replace(/[̀-ͯ]/g,''))) s++; } if(s>bs){bs=s;best=f;} }
+  return best ? best.a : null;
+}
+async function askFaq(){
+  const q = $('#q').value.trim(); if(!q) return;
+  const box = $('#ans'); box.style.display='block'; box.textContent='Pensando…';
+  const local = localAnswer(q);
+  const sample = await Promise.race([getSample(), sleep(2500).then(()=>null)]);
+  if(sample){
+    try{
+      const ctx = FAQ.map(f=>`P: ${f.q}\nR: ${f.a}`).join('\n\n');
+      const prompt = `Você é o assistente da página de um consultor de consórcios que atende brasileiros que moram no exterior. Responda em português do Brasil, em no máximo 5 frases, de forma clara e honesta.
+Regras: nunca prometa rentabilidade, data de contemplação ou aprovação; não invente taxas ou números; consórcio não é aplicação financeira; quando depender de contrato, grupo ou caso pessoal, diga que o consultor confirma. Use a base abaixo como referência.
+
+BASE:
+${ctx}
+
+PERGUNTA DO VISITANTE: ${q}`;
+      await sample(prompt,{cache:false,modelTier:'quick',onText:({text})=>{ box.textContent=text; }});
+      return;
+    }catch(e){ /* cai para resposta local */ }
+  }
+  box.textContent = local || 'Boa pergunta! Ela depende do seu caso. Faça a análise acima e envie pelo WhatsApp que o consultor responde pessoalmente.';
+}
+</script>
+</body>
+</html>

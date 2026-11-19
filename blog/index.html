@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog — Patrimônio no Brasil para brasileiros no exterior</title>
+<meta name="description" content="Guias para brasileiros nos EUA e na Europa: imóvel no Brasil, consórcio, câmbio, CPF e planejamento para a volta.">
+<link rel="canonical" href="https://williamconsorcios.netlify.app/blog/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blog — Patrimônio no Brasil para brasileiros no exterior">
+<meta property="og:description" content="Guias diretos para quem ganha em moeda forte e quer construir patrimônio no Brasil.">
+<meta name="theme-color" content="#0f5c3f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f5c3f'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' text-anchor='middle' fill='%23f3e6c6'%3EWR%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/blog.css">
+</head>
+<body>
+<header class="wrap">
+  <a class="brand" href="/"><div class="mark">WR</div><div>William Ribeiro<small>Consultor credenciado Ademicon</small></div></a>
+  <nav class="nav"><a href="/">Início</a><a href="/#analise">Análise gratuita</a></nav>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <h1>Guias para quem mora fora e quer patrimônio no Brasil</h1>
+    <p>Câmbio, CPF, imóvel, consórcio e planejamento para a volta. Tudo explicado de brasileiro para brasileiro, sem enrolação.</p>
+  </section>
+
+  <div class="filters" id="filters"></div>
+  <section class="posts" id="posts"></section>
+</main>
+
+<footer class="wrap">
+  <p>Conteúdo informativo, sem valor de proposta. Consórcio é regulado pelo Banco Central (Lei 11.795/2008), não é aplicação financeira e não tem rentabilidade nem data de contemplação garantidas. Condições variam por grupo e contrato.</p>
+  <p><a href="/">Início</a> · <a href="/#analise">Fazer a análise gratuita</a></p>
+</footer>
+
+<script src="/blog/posts.js"></script>
+<script>
+const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = d => new Date(d+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});
+const list = [...POSTS].sort((a,b)=>b.data.localeCompare(a.data));
+const tags = ['Todos', ...new Set(list.map(p=>p.tag))];
+let atual = 'Todos';
+function render(){
+  const ps = atual==='Todos' ? list : list.filter(p=>p.tag===atual);
+  document.getElementById('posts').innerHTML = ps.length ? ps.map(p=>`
+    <a class="post" href="/blog/${esc(p.slug)}.html">
+      <span class="tag">${esc(p.tag)}</span>
+      <h2>${esc(p.titulo)}</h2>
+      <p>${esc(p.resumo)}</p>
+      <time datetime="${esc(p.data)}">${fmt(p.data)}</time>
+    </a>`).join('') : '<p class="empty">Nenhum artigo nessa categoria ainda.</p>';
+  document.getElementById('filters').innerHTML = tags.length>2 ? tags.map(t=>`<button class="chip ${t===atual?'on':''}" onclick="atual='${esc(t)}';render()">${esc(t)}</button>`).join('') : '';
+}
+render();
+</script>
+<script src="/blog/site.js"></script>
+</body>
+</html>
