@@ -63,6 +63,8 @@ footer{border-top:1px solid var(--line);padding:22px 0 90px;margin-top:40px;font
 .wafloat svg{width:24px;height:24px;flex:none}
 @media (max-width:760px){
   .posts{grid-template-columns:1fr}
+  article table{font-size:14px}
+  article th,article td{padding:8px 7px}
   .wafloat span{display:none}
   .wafloat{padding:14px}
 }
